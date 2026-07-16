@@ -9,5 +9,15 @@
     <%- include('./partials/navbar') %>
 
     <h1>Welcome to TrackLift Community</h1>
+    <p>A workout tracking app that just works. Everything you need to log your workouts and smash your goals.</p>
+     <h2> Join the community </h2>
+     <p>Follow and compete with other athletes to stay motivated.</p>
+     
+    <% if (user) { %>
+        <p>Welcome <% user.username %></p> 
+
+        <% } else { %>
+            <p>Please Login</p>
+   <% } %>
 </body>
 </html>

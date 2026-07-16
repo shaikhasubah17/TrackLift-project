@@ -5,6 +5,11 @@ const workoutSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  experienceLevel: { 
+    type: ['Beginner' , 'Intermediate' , 'Advanced'],
+    required: true
+
+  }, 
   workoutEquipment: {
     type: String,
     required: true
@@ -23,6 +28,7 @@ const workoutSchema = new mongoose.Schema({
     max: 5,
     required: true
   }
+
 
 }, {timestamps: true});
 
