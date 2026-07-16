@@ -7,6 +7,8 @@ const session = require('express-session');
 const methodOverride = require('method-override')
 const {MongoStore} = require("connect-mongo");
 const connectToDB = require('./db.js')
+const User = require('./models/User.js')
+const Exercise = require('./models/Exercise.js')
 
 // middleware imports
 const isSignedIn = require("./middleware/is-signed-in.js");

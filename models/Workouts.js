@@ -5,11 +5,11 @@ const workoutSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  experienceLevel: { 
-    type: ['Beginner' , 'Intermediate' , 'Advanced'],
+ experienceLevel: {
+    type: String,
+    enum: ['Beginner', 'Intermediate', 'Advanced'],
     required: true
-
-  }, 
+}, 
   workoutEquipment: {
     type: String,
     required: true
