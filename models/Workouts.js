@@ -5,6 +5,12 @@ const workoutSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  category: {
+    type: String,
+  enum: ["Upper Body", "Lower Body", "HIIT", "Cardio"],
+  required: true
+
+  },
  experienceLevel: {
     type: String,
     enum: ['Beginner', 'Intermediate', 'Advanced'],
@@ -18,10 +24,6 @@ const workoutSchema = new mongoose.Schema({
     type: String,
     required: true
   }, 
-  date: { 
-    type: Date,
-    required: true
-  }, 
   workoutRating: { 
     type: Number,
     min: 1,
@@ -29,6 +31,11 @@ const workoutSchema = new mongoose.Schema({
     required: true
   }, 
 
+ date: {
+    type: Date,
+    default: Date.now
+  },
+  
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
