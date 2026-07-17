@@ -27,8 +27,13 @@ const workoutSchema = new mongoose.Schema({
     min: 1,
     max: 5,
     required: true
-  }
+  }, 
 
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true
+}
 
 }, {timestamps: true});
 

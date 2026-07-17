@@ -1,5 +1,5 @@
 const router = require("express").Router()
-const Exersice = require("../models/Exersice.js") 
+const Exercise = require("../models/Exercise.js") 
 const Workouts = require("../models/Workouts.js")
 const information = require("../models/information.js") 
 
