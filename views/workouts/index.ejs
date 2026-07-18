@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Workouts</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <h1>My Workouts</h1>
+
+<a href="/workouts/new">+ Create Workout</a>
+
+ <hr>
+
+ <% if (workouts.length === 0) { %>
+
+<p>You haven't created any workouts yet.</p>
+
+ <% } else { %>
+
+ <% workouts.forEach(workout => { %>
+
+        <div class="workout-card">
+
+          <h2><%= workout.workoutName %></h2>
+
+             <p><strong>Category:</strong> <%= workout.category %></p>
+
+             <p><strong>Experience:</strong> <%= workout.experienceLevel %></p>
+
+             <p><strong>Equipment:</strong> <%= workout.workoutEquipment %></p>
+
+             <p><strong>Duration:</strong> <%= workout.workoutDuration %> minutes</p>
+
+            <p><strong>Rating:</strong> ⭐ <%= workout.workoutRating %>/5</p>
+
+            <a href="/workouts/<%= workout._id %>">View</a>
+
+            <a href="/workouts/<%= workout._id %>/edit">Edit</a>
+
+                <form
+                    action="/workouts/<%= workout._id %>?_method=DELETE"
+                    method="POST"
+                    style="display:inline;">
+
+                    <button type="submit">
+                        Delete
+          </button>
+
+      </form>
+
+ </div>
+
+<hr>
+
+<% }) %>
+
+ <% } %>
+
+</body>
+</html>

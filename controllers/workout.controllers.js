@@ -48,49 +48,72 @@ router.post("/", isSignedIn, async (req, res) => {
 // GET - Show One Workout
 
 router.get("/:id", isSignedIn, async (req, res) => {
-    try { const workout = await Workout.findById(req.params.id)
- res.render("workouts/show.ejs", { workout })
+    try {
+        console.log("ID from URL:", req.params.id);
+        const workout = await Workout.findById(req.params.id);
+        console.log("Workout found:", workout);
+
+        if (!workout) {
+            return res.send("No workout found with this ID");
+        }
+        res.render("workouts/show.ejs", {
+            workout
+        });
 
     } catch (error) {
         console.log(error);
-        res.send("Workout not found.")
+        res.send("Error finding workout");
     }
-}) 
+})
 
 
 
 // GET - Edit Workout Form
 
 router.get("/:id/edit", isSignedIn, async (req, res) => {
-    try { const workout = await Workout.findById(req.params.id)
-        res.render("workouts/edit.ejs", { workout })
 
+    try {
+        const workout = await Workout.findOne({
+            _id: req.params.id,
+            user: req.session.user._id })
+        if (!workout) {
+            return res.send("Workout not found")
+        }
+        res.render("workouts/edit.ejs", {
+            workout
+        })
     } catch (error) {
-         console.log(error)
-         res.send("Cannot edit workout.")
+        console.log(error)
+        res.send("Cannot edit workout.")
     }
 })
-
-
 
 // PUT - Update Workout
 
 router.put("/:id", isSignedIn, async (req, res) => {
 
-    try { await Workout.findByIdAndUpdate(req.params.id, req.body)
+    try {
+        await Workout.findByIdAndUpdate(
+            req.params.id,
+            req.body
+        )
         res.redirect(`/workouts/${req.params.id}`)
 
     } catch (error) {
         console.log(error);
         res.send("Unable to update workout.")
     }
-})
+}) 
 
 
 // DELETE - Delete Workout
 
 router.delete("/:id", isSignedIn, async (req, res) => {
-    try { await Workout.findByIdAndDelete(req.params.id)
+    try {
+        await Workout.findOneAndDelete({
+    _id: req.params.id,
+    user: req.session.user._id
+});
         res.redirect("/workouts")
     } catch (error) {
         console.log(error);

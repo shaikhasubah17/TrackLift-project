@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= workout.workoutName %></title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<h1><%= workout.workoutName %></h1>
+
+<p><strong>Category:</strong> <%= workout.category %></p>
+
+<p><strong>Experience:</strong> <%= workout.experienceLevel %></p>
+
+<p><strong>Equipment:</strong> <%= workout.workoutEquipment %></p>
+
+<p><strong>Duration:</strong> <%= workout.workoutDuration %> minutes</p>
+
+<p><strong>Rating:</strong> ⭐ <%= workout.workoutRating %>/5</p>
+
+<hr>
+
+<a href="/workouts">Back to My Workouts</a>
+
+|
+<a href="/workouts/<%= workout._id %>/edit">Edit Workout</a>
+
+<br><br>
+
+<form 
+    action="/workouts/<%= workout._id %>?_method=DELETE"
+    method="POST">
+
+    <button type="submit"> Delete Workout </button>
+
+</form>
+
+</body>
+</html>

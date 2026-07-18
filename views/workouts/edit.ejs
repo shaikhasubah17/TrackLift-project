@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Workout</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<h1>Edit Workout</h1>
+
+
+<form action="/workouts/<%= workout._id %>?_method=PUT" method="POST">
+    <div>
+        <label for="workoutName">Workout Name</label>
+        <br>
+
+        <input type="text" id="workoutName" name="workoutName" value="<%= workout.workoutName %>" required
+        >
+    </div>
+
+    <br>
+
+    <div>
+        <label for="category">Category</label>
+        <br>
+
+        <select name="category" id="category">
+
+            <option 
+            value="Upper Body"
+            <%= workout.category === "Upper Body" ? "selected" : "" %>>
+                Upper Body
+            </option>
+
+
+            <option 
+            value="Lower Body"
+            <%= workout.category === "Lower Body" ? "selected" : "" %>>
+                Lower Body
+            </option>
+
+
+            <option 
+            value="HIIT"
+            <%= workout.category === "HIIT" ? "selected" : "" %>>
+                HIIT
+            </option>
+
+
+            <option 
+            value="Cardio"
+            <%= workout.category === "Cardio" ? "selected" : "" %>>
+                Cardio
+            </option>
+        </select>
+    </div>
+    <br>
+
+    <div>
+        <label for="experienceLevel"> Experience Level </label>
+        <br>
+
+        <select name="experienceLevel">
+
+            <option 
+            value="Beginner"
+            <%= workout.experienceLevel === "Beginner" ? "selected" : "" %>>
+                Beginner
+            </option>
+
+
+            <option 
+            value="Intermediate"
+            <%= workout.experienceLevel === "Intermediate" ? "selected" : "" %>>
+                Intermediate
+            </option>
+
+
+            <option 
+            value="Advanced"
+            <%= workout.experienceLevel === "Advanced" ? "selected" : "" %>>
+                Advanced </option>
+
+        </select>
+
+    </div>
+
+    <br>
+
+    <div>
+        <label> Equipment </label>
+
+        <br>
+
+        <input type="text" name="workoutEquipment" value="<%= workout.workoutEquipment %>" required
+        >
+    </div>
+
+    <br>
+
+    <div>
+
+        <label> Duration (minutes) </label>
+
+        <br>
+
+        <input type="number" name="workoutDuration" value="<%= workout.workoutDuration %> "required
+        >
+    </div>
+
+    <br>
+    <div>
+
+        <label> Rating </label>
+
+        <br>
+
+        <input type="number" name="workoutRating" min="1" max="5" value="<%= workout.workoutRating %>">
+    </div>
+
+    <br>
+
+    <button type="submit"> Update Workout </button>
+
+</form>
+
+
+<br>
+
+<a href="/workouts/<%= workout._id %>"> Cancel </a>
+
+</body>
+</html>
