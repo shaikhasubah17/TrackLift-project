@@ -1,6 +1,7 @@
-const router = require("express").Router();
-const Workout = require("../models/Workouts.js");
-const isSignedIn = require("../middleware/is-signed-in.js");
+const router = require("express").Router()
+const Workout = require("../models/Workouts.js")
+const isSignedIn = require("../middleware/is-signed-in.js")
+const Exercise = require("../models/Exercise.js")
 
 
 
@@ -48,25 +49,27 @@ router.post("/", isSignedIn, async (req, res) => {
 // GET - Show One Workout
 
 router.get("/:id", isSignedIn, async (req, res) => {
-    try {
-        console.log("ID from URL:", req.params.id);
-        const workout = await Workout.findById(req.params.id);
-        console.log("Workout found:", workout);
 
+    try { const workout = await Workout.findOne({
+            _id: req.params.id,
+            user: req.session.user._id
+        })
         if (!workout) {
-            return res.send("No workout found with this ID");
+            return res.send("Workout not found")
         }
+        const exercises = await Exercise.find({
+            workout: workout._id })
+
         res.render("workouts/show.ejs", {
-            workout
-        });
-
+            workout,
+            exercises })
     } catch (error) {
+
         console.log(error);
-        res.send("Error finding workout");
+        res.send("Workout not found")
     }
+
 })
-
-
 
 // GET - Edit Workout Form
 

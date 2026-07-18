@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Exercise</title>
+
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+<h1>Add Exercise</h1>
+
+<form action="/exercises/<%= workoutId %>" method="POST">
+    <div>
+        <label>Exercise Name</label>
+
+        <br>
+
+        <input type="text" name="exerciseName" required>
+    </div>
+
+    <br>
+
+    <div>
+        <label>Sets</label>
+        <br>
+        <input type="number" name="sets" min="1" required>
+
+    </div>
+    <br>
+    <div>
+        <label>Reps</label>
+        <br>
+        <input type="number" name="reps" min="1" required> 
+        </div>
+    <br>
+    <div>
+        <label>Weight (kg)</label>
+        <br>
+        <input type="number" name="weight" min="0" required>
+
+    </div>
+
+    <br>
+
+    <button type="submit"> Save Exercise </button>
+
+</form>
+
+<br>
+
+<a href="/workouts/<%= workoutId %>"> Back to Workout </a>
+
+</body>
+</html>

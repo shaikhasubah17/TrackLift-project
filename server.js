@@ -5,19 +5,20 @@ const dotenv = require("dotenv").config() //this allows me to use my .env values
 const morgan = require('morgan')
 const session = require('express-session');
 const methodOverride = require('method-override')
-const {MongoStore} = require("connect-mongo");
+const {MongoStore} = require("connect-mongo")
 const connectToDB = require('./db.js')
 const User = require('./models/User.js')
 const Exercise = require('./models/Exercise.js')
 
 // middleware imports
 const isSignedIn = require("./middleware/is-signed-in.js");
-const passUserToView = require("./middleware/pass-user-to-view.js");
+const passUserToView = require("./middleware/pass-user-to-view.js")
 
 // controller Imports
-const authController = require("./controllers/auth.controllers.js");
-const indexController = require("./controllers/index.controllers.js");
-const workoutController = require("./controllers/workout.controllers.js");
+const authController = require("./controllers/auth.controllers.js")
+const indexController = require("./controllers/index.controllers.js")
+const workoutController = require("./controllers/workout.controllers.js")
+const exerciseController = require("./controllers/exercise.controllers.js")
 
 
 
@@ -61,6 +62,7 @@ app.use(passUserToView)
 app.use('/auth',authController)
 app.use('/',indexController)
 app.use('/workouts', workoutController)
+app.use('/exercises', exerciseController)
 
 
 
