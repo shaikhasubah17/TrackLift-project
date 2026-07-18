@@ -100,7 +100,7 @@ router.put("/:id", isSignedIn, async (req, res) => {
         res.redirect(`/workouts/${req.params.id}`)
 
     } catch (error) {
-        console.log(error);
+        console.log(error)
         res.send("Unable to update workout.")
     }
 }) 
@@ -113,10 +113,11 @@ router.delete("/:id", isSignedIn, async (req, res) => {
         await Workout.findOneAndDelete({
     _id: req.params.id,
     user: req.session.user._id
-});
+}) 
+
         res.redirect("/workouts")
     } catch (error) {
-        console.log(error);
+        console.log(error)
         res.send("Unable to delete workout.")
     }
 })
