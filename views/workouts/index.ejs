@@ -7,58 +7,66 @@
 
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
 
-    <h1>My Workouts</h1>
+<%- include("../partials/navbar") %>
 
-<a href="/workouts/new">+ Create Workout</a>
+<div class="container">
 
- <hr>
+    <h1>My Workouts 💪</h1>
 
- <% if (workouts.length === 0) { %>
+    <a class="btn" href="/workouts/new">
+        + Create Workout
+    </a>
 
-<p>You haven't created any workouts yet.</p>
+    <br><br>
 
- <% } else { %>
+    <% if (workouts.length === 0) { %>
 
- <% workouts.forEach(workout => { %>
+     <p>You haven't created any workouts yet.</p>
 
-        <div class="workout-card">
+    <% } else { %>
 
-          <h2><%= workout.workoutName %></h2>
+     <% workouts.forEach(workout => { %>
 
-             <p><strong>Category:</strong> <%= workout.category %></p>
+     <div class="workout-card">
 
-             <p><strong>Experience:</strong> <%= workout.experienceLevel %></p>
+     <h2><%= workout.workoutName %></h2>
 
-             <p><strong>Equipment:</strong> <%= workout.workoutEquipment %></p>
+    <p><strong>Category:</strong> <%= workout.category %></p>
 
-             <p><strong>Duration:</strong> <%= workout.workoutDuration %> minutes</p>
+    <p><strong>Experience:</strong> <%= workout.experienceLevel %></p>
 
-            <p><strong>Rating:</strong> ⭐ <%= workout.workoutRating %>/5</p>
+    <p><strong>Duration:</strong> <%= workout.workoutDuration %> minutes</p>
 
-            <a href="/workouts/<%= workout._id %>">View</a>
+    <p><strong>Equipment:</strong> <%= workout.workoutEquipment %></p>
 
-            <a href="/workouts/<%= workout._id %>/edit">Edit</a>
+    <p><strong>Rating:</strong> ⭐ <%= workout.workoutRating %>/5</p>
 
-                <form
-                    action="/workouts/<%= workout._id %>?_method=DELETE"
-                    method="POST"
-                    style="display:inline;">
+        <div class="actions">
 
-                    <button type="submit">
-                        Delete
-          </button>
+    <a href="/workouts/<%= workout._id %>">View</a>
 
-      </form>
+    <a href="/workouts/<%= workout._id %>/edit">Edit</a>
+
+    <form action="/workouts/<%= workout._id %>?_method=DELETE" method="POST">
+
+        <button> Delete</button>
+
+</form>
+
+</div>
 
  </div>
 
-<hr>
+     <% }) %>
 
-<% }) %>
+    <% } %>
 
- <% } %>
+</div>
+
+<%- include("../partials/footer") %>
 
 </body>
 </html>

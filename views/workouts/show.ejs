@@ -7,7 +7,10 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+<%- include("../partials/navbar") %>
+<div class="container">
 
+    <div class="workout-card">
 <h1><%= workout.workoutName %></h1>
 
 <p><strong>Category:</strong> <%= workout.category %></p>
@@ -22,12 +25,55 @@
 
 <hr>
 
+    </div>
+    </div>
 <a href="/workouts">Back to My Workouts</a>
 
 
 <hr>
 
+<div class="exercise-card">
 <h2>Exercises</h2>
+
+
+<% if (exercises.length === 0) { %>
+
+    <p>No exercises added yet.</p>
+
+<% } else { %>
+
+    <% exercises.forEach(exercise => { %>
+
+        <div>
+
+     <h3><%= exercise.exerciseName %></h3>
+
+     <p>Sets: <%= exercise.sets %></p>
+
+     <p>Reps: <%= exercise.reps %></p>
+
+     <p>Weight: <%= exercise.weight %> kg</p>
+
+     <a href="/exercises/<%= exercise._id %>/edit">
+    Edit
+</a>
+
+<form action="/exercises/<%= exercise._id %>?_method=DELETE" method="POST"
+    style="display:inline;">
+
+    <button type="submit"> Delete </button>
+
+    
+
+</form>
+
+<hr>
+
+     </div>
+
+    <% }) %>
+
+<% } %>
 
 <a href="/exercises/<%= workout._id %>/new">
     + Add Exercise
@@ -46,6 +92,8 @@
     <button type="submit"> Delete Workout </button>
 
 </form>
+</div>
 
+<%- include("../partials/footer") %>
 </body>
 </html>

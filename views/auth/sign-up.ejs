@@ -3,13 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css">
     <title>Sign Up</title>
   </head>
   <body>
     <%- include('../partials/navbar') %>
-
+<div class="form-container">
     <h1>Create a new account and Join TrackLift Community Today!</h1>
-    
+
     <form action="/auth/sign-up" method="post">
       <label for="username">Username:</label>
       <input type="text" name="username" id="username" />
@@ -23,5 +24,6 @@
       <button type="submit">Sign up</button>
 
     </form>
+  </div>
   </body>
 </html>

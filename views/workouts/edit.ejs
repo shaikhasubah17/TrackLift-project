@@ -8,7 +8,9 @@
 </head>
 
 <body>
+ <%- include("../partials/navbar") %>
 
+<div class="form-container">
 <h1>Edit Workout</h1>
 
 
@@ -126,11 +128,12 @@
     <button type="submit"> Update Workout </button>
 
 </form>
-
+</div>
 
 <br>
 
 <a href="/workouts/<%= workout._id %>"> Cancel </a>
 
+<%- include("../partials/footer") %>
 </body>
 </html>

@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-
+     <%- include("../partials/navbar") %>
+     <div class="form-container">
     <h1>Create a New Workout</h1>
 
     <form action="/workouts" method="POST">
@@ -66,8 +67,10 @@
         <br>
         <button type="submit">Create Workout</button>
     </form>
+</div>
     <br>
     <a href="/workouts">Back to My Workouts</a>
 
+    <%- include("../partials/footer") %>
 </body>
 </html>

@@ -18,15 +18,11 @@ router.get("/", isSignedIn, async (req, res) => {
     }
 })
 
-
-
 // GET - New Workout Form
 
 router.get("/new", isSignedIn, (req, res) => {
     res.render("workouts/new.ejs")
 })
-
-
 
 // POST - Create Workout
 

@@ -3,21 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <%- include('./partials/navbar') %>
+    <title>TrackLift Community</title>
 
-    <h1>Welcome to TrackLift Community</h1>
-    <p>A workout tracking app that just works. Everything you need to log your workouts and smash your goals.</p>
-     <h2> Join the community </h2>
-     <p>Follow and compete with other athletes to stay motivated.</p>
-     
-    <% if (user) { %>
-        <p>Welcome <% user.username %></p> 
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <%- include("./partials/navbar") %>
+
+    <section class="hero">
+
+        <h1>🏋️ TrackLift Community</h1>
+
+        <p class="hero-text">
+            Track your workouts, organize your exercises,
+            and stay consistent with your fitness journey.</p>
+        <% if (user) { %>
+
+            <h2>Welcome back, <%= user.username %>!</h2>
+
+            <a class="btn" href="/workouts"> Go to My Workouts </a>
 
         <% } else { %>
-            <p>Please Login</p>
-   <% } %>
+            <a class="btn" href="/auth/sign-up"> Get Started </a>
+
+        <% } %>
+
+    </section>
+
+    <section class="features">
+
+        <div class="feature-card">
+
+            <h3>💪 Create Workouts</h3>
+
+            <p> Build your own workout routines. </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+            <h3>📋 Log Exercises</h3>
+
+            <p> Add sets, reps and weight for every exercise. </p>
+
+        </div>
+        <div class="feature-card">
+
+            <h3>⭐ Stay Consistent</h3>
+
+            <p> Keep all your workouts organized in one place. </p>
+        </div>
+    </section>
+
+    <%- include("./partials/footer") %>
 </body>
 </html>
