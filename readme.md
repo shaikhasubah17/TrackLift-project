@@ -7,7 +7,7 @@ The application allows users to log every workout by recording exercises, sets, 
 ## Screenshots
 ![alt text](project2.drawio.png)
 ## Home page 
-![alt text](image.png)
+
 - Sign in page 
 ![alt text](image-1.png) 
 - My Workout page 
@@ -15,9 +15,9 @@ The application allows users to log every workout by recording exercises, sets, 
 - Exersice page 
 ![alt text](image-3.png)
 
+
 ## Technologies Used
 HTML - CSS - Java Script - Node - Express - MongoDB
-## Getting Started
 
 ## Installation
 
@@ -34,26 +34,33 @@ HTML - CSS - Java Script - Node - Express - MongoDB
 - As a user, I want to edit or delete workout logs so that I can correct mistakes or remove unwanted entries.
 ## Database Design
 
+![alt text](image-4.png)
 
 
 ## Routes
 
-| Method | Route | Description |
-|---------|-------|-------------|
-| GET | / | Home page |
-| GET | /listings | List all listings |
-| GET | /listings/new | New listing form |
-| POST | /listings | Create listing |
-| GET | /listings/:id | View listing |
-| GET | /listings/:id/edit | Edit listing form |
-| PUT | /listings/:id | Update listing |
-| DELETE | /listings/:id | Delete listing |
-
+| Method | Route              | Description                          |
+| ------ | ------------------ | ------------------------------------ |
+| GET    | /                  | Home page / Dashboard                |
+| GET    | /workouts          | List all workouts                    |
+| GET    | /workouts/new      | Display form to create a new workout |
+| POST   | /workouts          | Create a new workout                 |
+| GET    | /workouts/:id      | View details of a specific workout   |
+| GET    | /workouts/:id/edit | Display form to edit a workout       |
+| PUT    | /workouts/:id      | Update an existing workout           |
+| DELETE | /workouts/:id      | Delete a workout                     |
 
 
 ## Features
 
-
+- Create, view, edit, and delete workouts (CRUD operations).
+- Add multiple exercises to each workout.
+- Update exercise details such as sets, reps, weight, and duration.
+- Delete workouts and individual exercises.
+- View a complete list of all workouts.
+- Persistent data storage using a database (e.g., MongoDB).
+- Real-time updates after creating, editing, or deleting records.
+- Clean and user-friendly interface for tracking workout progress.
 
 ## Future Enhancements
 
@@ -64,4 +71,3 @@ Some features that could be added in future versions include:
 - Workout calendar
 - Personal records tracking
 
-## Credits
