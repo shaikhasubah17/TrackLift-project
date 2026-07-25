@@ -5,7 +5,7 @@ TrackLift is a fitness tracking and community platform designed to help users re
 
 The application allows users to log every workout by recording exercises, sets, reps, weights, workout duration, and personal notes. Users can easily review their workout history, track performance improvements, and monitor personal records over time. Progress analytics help users identify trends, maintain consistency, and make informed decisions about their training
 ## Screenshots
-![alt text](project2.drawio.png)
+
 ## Home page 
 
 - Sign in page 
